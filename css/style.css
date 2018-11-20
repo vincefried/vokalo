@@ -10,15 +10,22 @@
     background-image: radial-gradient(circle at 49% 50%, #1b2d42, #000000);
 }
 
-.left-container {
+.left-container-background {
     border: #979797 solid;
     border-width: 0px 2px 0px 0px;
     background-color: rgba(216, 216, 216, 0.2);
+    position: absolute;
 }
 
-.control-container {
-    border: 2px #979797 solid;
+.control-container-right {
+    border: #979797 solid;
+    border-width: 0px 0px 2px 0px;
     background-color: rgba(216, 216, 216, 0.2);
+}
+
+.control-container-left {
+    border: #979797 solid;
+    border-width: 0px 0px 2px 0px;
 }
 
 .drum-container {
@@ -47,6 +54,21 @@
     height: 100%;
     border-radius: 10px;
     background-color: rgba(89, 125, 160, 0.56);
+}
+
+.drum-cell-dot {
+    width: 13px;
+    height: 13px;
+    border: #bfff7a solid;
+    border-radius: 7px;
+    margin-top: 5px;
+}
+
+.drum-cell {
+    width: 35px;
+    height: 45px;
+    border: #597da0 solid;
+    border-radius: 10px;
 }
 
 .nopadding {
@@ -124,7 +146,11 @@
 }
 
 .track-row {
-    height: 100px;
+    height: 80px;
+}
+
+.add-row {
+    height: 80px;
 }
 
 h1 {
@@ -133,6 +159,7 @@ h1 {
     font-weight: 900;
     font-size: 50px;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 h2 {
@@ -156,11 +183,23 @@ p.record-button {
     font-weight: 400;
 }
 
-a {
-    text-decoration: none;
+@media(min-width:576px){
+    .container {
+        max-width: 1280px;
+    }
 }
-
-a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
+@media(min-width:768px){
+    .container {
+        max-width: 1280px;
+    }
+}
+@media(min-width:992px){
+    .container {
+        max-width: 1280px;
+    }
+}
+@media (min-width:1200px) {
+    .container {
+        max-width: 1280px;
+    }
 }

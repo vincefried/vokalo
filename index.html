@@ -10,92 +10,218 @@
 <body>
 <div class="background">
     <div class="container h-100">
-        <div class="row h-25 align-items-center control-container">
-            <div class="col-md-4">
-                <div align="center"><h1>VOKALO</h1></div>
-            </div>
-            <div class="col-md-2">
-                <div align="center">
-                    <a href=""><img src="img/play.png" /></a>
+        <div class="col-md-4 left-container-background h-100"></div>
+        <div class="row h-25 align-items-center">
+            <div class="col-md-4 h-100 control-container-left">
+                <div class="row h-100 align-items-center">
+                    <h1 class="w-100">VOKALO</h1>
                 </div>
             </div>
-            <div class="col-md-2">
-                <div align="center">
-                    <div class="row value-cell">
-                        <div class="col-md-8">
-                            <h2>174 BPM</h2>
+            <div class="col-md-8 h-100 control-container-right">
+                <div class="row h-100 align-items-center">
+                    <div class="col-md-3">
+                        <div align="center">
+                            <img src="img/play.png" />
                         </div>
-                        <div class="col-md-4 h-100 nopadding">
-                            <div class="row up-indicator">
-                                <a href=""><img src="img/up.png" /></a>
-                            </div>
-                            <div class="row down-indicator">
-                                <a href=""><img src="img/down.png" /></a>
+                    </div>
+                    <div class="col-md-3">
+                        <div align="center">
+                            <div class="row value-cell">
+                                <div class="col-md-8">
+                                    <h2>174 BPM</h2>
+                                </div>
+                                <div class="col-md-4 h-100 nopadding">
+                                    <div class="row up-indicator">
+                                        <img src="img/up.png" />
+                                    </div>
+                                    <div class="row down-indicator">
+                                        <img src="img/down.png" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div align="center">
-                    <div class="row value-cell">
-                        <div class="col-md-8">
-                            <h2>16 Beats</h2>
-                        </div>
-                        <div class="col-md-4 h-100 nopadding">
-                            <div class="row up-indicator">
-                                <a href=""><img src="img/up.png" /></a>
-                            </div>
-                            <div class="row down-indicator">
-                                <a href=""><img src="img/down.png" /></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div align="center">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2>Volume</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="slidecontainer">
-                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                    <div class="col-md-3">
+                        <div align="center">
+                            <div class="row value-cell">
+                                <div class="col-md-8">
+                                    <h2>16 Beats</h2>
+                                </div>
+                                <div class="col-md-4 h-100 nopadding">
+                                    <div class="row up-indicator">
+                                        <img src="img/up.png" />
+                                    </div>
+                                    <div class="row down-indicator">
+                                        <img src="img/down.png" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2>100%</h2>
+                    <div class="col-md-3">
+                        <div align="center">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2>Volume</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="slidecontainer">
+                                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-2">
+                                <div class="col-md-12">
+                                    <h2>100%</h2>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row h-50 drum-container">
-            <div class="col-md-4 left-container">
-                <div align="center">
-                    <div class="row align-items-center track-row">
-                        <div class="col-md-4">
-                            <p>Kick</p>
+            <div class="col-md-12 nopadding">
+                <div class="row track-row">
+                    <div class="col-md-4 h-100">
+                        <div align="center" class="h-100">
+                            <div class="row h-100 align-items-center">
+                                <div class="col-md-4">
+                                    <p>Kick</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="record-button">R</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-8">
-                            <a href=""><p class="record-button">R</p></a>
+                    </div>
+                    <div class="col-md-8 nopadding h-100">
+                        <div align="center" class="h-100">
+                            <div class="row h-100 align-items-center">
+                                <div class="col-md-3 pr-0">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pr-0">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pr-0">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="drum-cell">
+                                                <div class="drum-cell-dot"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-8">
-                <div align="center">Haupt rechts</div>
+                <div class="row add-row">
+                    <div class="col-md-4 h-100">
+                        <div align="center" class="h-100">
+                            <div class="row h-100 align-items-center">
+                                <div align="right" class="col-md-4 pr-0">
+                                    <img src="img/add.png" />
+                                </div>
+                                <div align="left" class="col-md-8">
+                                    <p>Add new track</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 nopadding">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row h-25 sampler-container">
-            <div class="col-md-4 left-container">
-                <div align="center">
-                    <div class="row align-items-center">
+            <div class="col-md-4">
+                <div align="center" class="h-100">
+                    <div class="row h-100 align-items-center">
                         <div class="col-md-4">
                             <p>Sampler</p>
                         </div>
@@ -103,7 +229,7 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div align="center">Unten rechts</div>
+                <div align="center"></div>
             </div>
         </div>
     </div>
