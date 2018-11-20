@@ -11,13 +11,23 @@
 }
 
 .left-container {
-    border: 1px #979797;
+    border: #979797 solid;
+    border-width: 0px 2px 0px 0px;
     background-color: rgba(216, 216, 216, 0.2);
 }
 
 .control-container {
-    border: 1px #979797;
+    border: 2px #979797 solid;
     background-color: rgba(216, 216, 216, 0.2);
+}
+
+.drum-container {
+
+}
+
+.sampler-container {
+    border: #979797 solid;
+    border-width: 2px 0px 0px 0px;
 }
 
 .row {
@@ -91,6 +101,32 @@
     cursor: pointer;
 }
 
+.record-button {
+    color: #ff4058;
+    border-radius: 5px;
+    width: 26px;
+    height: 26px;
+    border: 2px solid #ff4058;
+    padding-top: -10px;
+    -webkit-transition: .2s;
+    transition: background-color .2s;
+    cursor: pointer;
+}
+
+.record-button:hover {
+    color: #ffffff;
+    background-color: #ff4058;
+}
+
+.record-button:active {
+    color: #ffffff;
+    background-color: #ff4058;
+}
+
+.track-row {
+    height: 100px;
+}
+
 h1 {
     color: #ffffff;
     font-family: 'Kanit', sans-serif;
@@ -105,4 +141,26 @@ h2 {
     font-weight: 900;
     font-size: 15px;
     letter-spacing: 1px;
+}
+
+p {
+    color: #ffffff;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    margin: auto;
+}
+
+p.record-button {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
 }
