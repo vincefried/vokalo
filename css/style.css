@@ -69,6 +69,21 @@
     height: 45px;
     border: #597da0 solid;
     border-radius: 10px;
+    -webkit-transition: .2s;
+    transition: background-color .2s;
+    cursor: pointer;
+}
+
+.drum-cell:hover {
+    background-color: #597da0;
+}
+
+.drum-cell:active {
+    background-color: #597da0;
+}
+
+.drum-cell-dot:active {
+    background-color: #bfff7a;
 }
 
 .nopadding {
