@@ -185,6 +185,36 @@
     height: 80px;
 }
 
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left:32px;
+    top:32px;
+    right: 32px;
+    bottom: 32px;
+    width: 1095px;
+    height: 720px;
+    border-radius: 10px;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    margin-left: 303px;
+    margin-top: 166px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 520px;
+    height: 420px;
+}
+
+.close {
+    position: absolute;
+}
+
 h1 {
     color: #ffffff;
     font-family: 'Kanit', sans-serif;

@@ -28,7 +28,7 @@
                     <!--Play button-->
                     <div class="col-md-3">
                         <div align="center">
-                            <img src="img/play.png" />
+                            <img src="img/play@2x.png" width="60px" height="60px" />
                         </div>
                     </div>
                     <!--/ Play button-->
@@ -41,10 +41,10 @@
                                 </div>
                                 <div class="col-md-4 h-100 nopadding">
                                     <div class="row up-indicator">
-                                        <img src="img/up.png" />
+                                        <img src="img/up@2x.png" width="24px" height="24px" />
                                     </div>
                                     <div class="row down-indicator">
-                                        <img src="img/down.png" />
+                                        <img src="img/down@2x.png" width="24px" height="24px" />
                                     </div>
                                 </div>
                             </div>
@@ -60,10 +60,10 @@
                                 </div>
                                 <div class="col-md-4 h-100 nopadding">
                                     <div class="row up-indicator">
-                                        <img src="img/up.png" />
+                                        <img src="img/up@2x.png" width="24px" height="24px" />
                                     </div>
                                     <div class="row down-indicator">
-                                        <img src="img/down.png" />
+                                        <img src="img/down@2x.png" width="24px" height="24px" />
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
                                     <p>Kick</p>
                                 </div>
                                 <div class="col-md-8">
-                                    <p class="record-button">R</p>
+                                    <p class="record-button" onclick="openRecordingModal()">R</p>
                                 </div>
                             </div>
                             <!--/ Track name and options row-->
@@ -301,7 +301,7 @@
                         <div align="center" class="h-100">
                             <div class="row h-100 align-items-center">
                                 <div align="right" class="col-md-4 pr-0">
-                                    <img src="img/add.png" />
+                                    <img src="img/add@2x.png" width="24px" height="24px" />
                                 </div>
                                 <div align="left" class="col-md-8">
                                     <p>Add new track</p>
@@ -338,7 +338,22 @@
     </div>
 </div>
 
-<!--A script to load high resolution images on devices with a retina display-->
-<script type="text/javascript" src="js/retina.min.js"></script>
+<!-- Recording Modal -->
+<div id="recordingModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <img onclick="closeRecordingModal()" src="img/cancel@2x.png" class="close" width="48px" height="48px"/>
+        <div class="row h-100 align-items-center">
+            <div class="col-md-12">
+                <a>Some text in the Modal..</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--The script for the audio recording logic-->
+<script type="text/javascript" src="js/recorder.js"></script>
 </body>
 </html>
