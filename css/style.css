@@ -56,6 +56,23 @@
     background-color: rgba(89, 125, 160, 0.56);
 }
 
+.play-indicator {
+    width: 13px;
+    height: 13px;
+    border: #9b9b9b solid;
+    border-radius: 7px;
+    margin-top: 5px;
+}
+
+.play-indicator-active-toggled {
+    width: 13px;
+    height: 13px;
+    border: #9b9b9b solid;
+    border-radius: 7px;
+    margin-top: 5px;
+    background-color: #9b9b9b;
+}
+
 .drum-cell-dot {
     width: 13px;
     height: 13px;

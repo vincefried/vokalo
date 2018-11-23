@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>VOKALO</title>
+    <!--Load bootstrap and custom stylesheet-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--Load fonts-->
     <link href="https://fonts.googleapis.com/css?family=Kanit:400,600,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 <body>
 <div class="background">
     <div class="container h-100">
+        <!--Container background-->
         <div class="col-md-4 left-container-background h-100"></div>
+        <!--Control container-->
         <div class="row h-25 align-items-center">
+            <!--Title-->
             <div class="col-md-4 h-100 control-container-left">
                 <div class="row h-100 align-items-center">
                     <h1 class="w-100">VOKALO</h1>
                 </div>
             </div>
+            <!--/ Title-->
             <div class="col-md-8 h-100 control-container-right">
                 <div class="row h-100 align-items-center">
+                    <!--Play button-->
                     <div class="col-md-3">
                         <div align="center">
                             <img src="img/play.png" />
                         </div>
                     </div>
+                    <!--/ Play button-->
+                    <!--BPM Control-->
                     <div class="col-md-3">
                         <div align="center">
                             <div class="row value-cell">
@@ -41,6 +50,8 @@
                             </div>
                         </div>
                     </div>
+                    <!--/ BPM Control-->
+                    <!--Beat control-->
                     <div class="col-md-3">
                         <div align="center">
                             <div class="row value-cell">
@@ -58,6 +69,8 @@
                             </div>
                         </div>
                     </div>
+                    <!--/ Beat control-->
+                    <!--Volume control-->
                     <div class="col-md-3">
                         <div align="center">
                             <div class="row">
@@ -79,14 +92,21 @@
                             </div>
                         </div>
                     </div>
+                    <!--/ Volume control-->
                 </div>
             </div>
         </div>
+        <!--/ Control container-->
+        <!--Drum container-->
         <div class="row h-50 drum-container">
             <div class="col-md-12 nopadding">
                 <div class="row track-row">
+                    <!--Left part-->
                     <div class="col-md-4 h-100">
                         <div align="center" class="h-100">
+                            <!--Placeholder row for aligning with play indicators-->
+                            <div class="row align-items-center"></div>
+                            <!--Track name and options row-->
                             <div class="row h-100 align-items-center">
                                 <div class="col-md-4">
                                     <p>Kick</p>
@@ -95,10 +115,82 @@
                                     <p class="record-button">R</p>
                                 </div>
                             </div>
+                            <!--/ Track name and options row-->
                         </div>
                     </div>
+                    <!--/ Left part-->
+                    <!--Right part-->
                     <div class="col-md-8 nopadding h-100">
                         <div align="center" class="h-100">
+                            <!--Play indicators-->
+                            <div class="row align-items-center">
+                                <div class="col-md-3 pr-0">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pr-0">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pr-0">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ Play indicators-->
+                            <!--Drum cells-->
                             <div class="row h-100 align-items-center">
                                 <div class="col-md-3 pr-0">
                                     <div class="row">
@@ -196,11 +288,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--/ Drum cells-->
                             </div>
                         </div>
                     </div>
+                    <!--/ Right part-->
                 </div>
+                <!--Add row-->
                 <div class="row add-row">
+                    <!--Left part-->
                     <div class="col-md-4 h-100">
                         <div align="center" class="h-100">
                             <div class="row h-100 align-items-center">
@@ -213,11 +309,17 @@
                             </div>
                         </div>
                     </div>
+                    <!--/ Left part-->
+                    <!--Right part-->
                     <div class="col-md-8 nopadding">
                     </div>
+                    <!--/ Right part-->
                 </div>
+                <!--/ Add row-->
             </div>
         </div>
+        <!--/ Drum container-->
+        <!--Sampler container-->
         <div class="row h-25 sampler-container">
             <div class="col-md-4">
                 <div align="center" class="h-100">
@@ -232,9 +334,11 @@
                 <div align="center"></div>
             </div>
         </div>
+        <!--/ Sampler container-->
     </div>
 </div>
 
+<!--A script to load high resolution images on devices with a retina display-->
 <script type="text/javascript" src="js/retina.min.js"></script>
 </body>
 </html>
