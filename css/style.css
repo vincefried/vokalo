@@ -91,8 +91,16 @@
     cursor: pointer;
 }
 
-.drum-cell:hover {
+.drum-cell-active-toggled {
+    background: #597da0;
+}
+
+.drum-cell-active-toggled:hover {
     background-color: #597da0;
+}
+
+.drum-cell:hover {
+    background-color: #0c5460;
 }
 
 .drum-cell:active {
@@ -201,11 +209,11 @@
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #083038;
     padding: 20px;
     margin-left: 303px;
     margin-top: 166px;
-    border: 1px solid #888;
+    border: 1px solid #07262d;
     border-radius: 10px;
     width: 520px;
     height: 420px;
@@ -213,6 +221,10 @@
 
 .close {
     position: absolute;
+}
+
+.spinner-container {
+    margin: 60px
 }
 
 h1 {
