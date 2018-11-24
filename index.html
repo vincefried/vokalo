@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>VOKALO</title>
+    <!--Load bootstrap and custom stylesheet-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--Load fonts-->
     <link href="https://fonts.googleapis.com/css?family=Kanit:400,600,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 <body>
 <div class="background">
     <div class="container h-100">
+        <!--Container background-->
         <div class="col-md-4 left-container-background h-100"></div>
+        <!--Control container-->
         <div class="row h-25 align-items-center">
+            <!--Title-->
             <div class="col-md-4 h-100 control-container-left">
                 <div class="row h-100 align-items-center">
                     <h1 class="w-100">VOKALO</h1>
                 </div>
             </div>
+            <!--/ Title-->
             <div class="col-md-8 h-100 control-container-right">
                 <div class="row h-100 align-items-center">
+                    <!--Play button-->
                     <div class="col-md-3">
                         <div align="center">
-                            <img src="img/play.png" />
+                            <img src="img/play@2x.png" width="60px" height="60px" />
                         </div>
                     </div>
+                    <!--/ Play button-->
+                    <!--BPM Control-->
                     <div class="col-md-3">
                         <div align="center">
                             <div class="row value-cell">
@@ -32,15 +41,17 @@
                                 </div>
                                 <div class="col-md-4 h-100 nopadding">
                                     <div class="row up-indicator">
-                                        <img src="img/up.png" />
+                                        <img src="img/up@2x.png" width="24px" height="24px" />
                                     </div>
                                     <div class="row down-indicator">
-                                        <img src="img/down.png" />
+                                        <img src="img/down@2x.png" width="24px" height="24px" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--/ BPM Control-->
+                    <!--Beat control-->
                     <div class="col-md-3">
                         <div align="center">
                             <div class="row value-cell">
@@ -49,15 +60,17 @@
                                 </div>
                                 <div class="col-md-4 h-100 nopadding">
                                     <div class="row up-indicator">
-                                        <img src="img/up.png" />
+                                        <img src="img/up@2x.png" width="24px" height="24px" />
                                     </div>
                                     <div class="row down-indicator">
-                                        <img src="img/down.png" />
+                                        <img src="img/down@2x.png" width="24px" height="24px" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--/ Beat control-->
+                    <!--Volume control-->
                     <div class="col-md-3">
                         <div align="center">
                             <div class="row">
@@ -79,26 +92,105 @@
                             </div>
                         </div>
                     </div>
+                    <!--/ Volume control-->
                 </div>
             </div>
         </div>
+        <!--/ Control container-->
+        <!--Drum container-->
         <div class="row h-50 drum-container">
             <div class="col-md-12 nopadding">
                 <div class="row track-row">
+                    <!--Left part-->
                     <div class="col-md-4 h-100">
                         <div align="center" class="h-100">
+                            <!--Placeholder row for aligning with play indicators-->
+                            <div class="row align-items-center"></div>
+                            <!--Track name and options row-->
                             <div class="row h-100 align-items-center">
                                 <div class="col-md-4">
                                     <p>Kick</p>
                                 </div>
                                 <div class="col-md-8">
-                                    <p class="record-button">R</p>
+                                    <p class="record-button" onclick="openRecordingModal()">R</p>
                                 </div>
                             </div>
+                            <!--/ Track name and options row-->
                         </div>
                     </div>
+                    <!--/ Left part-->
+                    <!--Right part-->
                     <div class="col-md-8 nopadding h-100">
                         <div align="center" class="h-100">
+                            <!--Play indicators-->
+                            <div class="row align-items-center">
+                                <div class="col-md-3 pr-0">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pr-0">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pr-0">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                        <div class="col-md-3 nopadding">
+                                            <div class="play-indicator"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ Play indicators-->
+                            <!--Drum cells-->
                             <div class="row h-100 align-items-center">
                                 <div class="col-md-3 pr-0">
                                     <div class="row">
@@ -196,16 +288,20 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--/ Drum cells-->
                             </div>
                         </div>
                     </div>
+                    <!--/ Right part-->
                 </div>
+                <!--Add row-->
                 <div class="row add-row">
+                    <!--Left part-->
                     <div class="col-md-4 h-100">
                         <div align="center" class="h-100">
                             <div class="row h-100 align-items-center">
                                 <div align="right" class="col-md-4 pr-0">
-                                    <img src="img/add.png" />
+                                    <img src="img/add@2x.png" width="24px" height="24px" />
                                 </div>
                                 <div align="left" class="col-md-8">
                                     <p>Add new track</p>
@@ -213,11 +309,17 @@
                             </div>
                         </div>
                     </div>
+                    <!--/ Left part-->
+                    <!--Right part-->
                     <div class="col-md-8 nopadding">
                     </div>
+                    <!--/ Right part-->
                 </div>
+                <!--/ Add row-->
             </div>
         </div>
+        <!--/ Drum container-->
+        <!--Sampler container-->
         <div class="row h-25 sampler-container">
             <div class="col-md-4">
                 <div align="center" class="h-100">
@@ -232,9 +334,26 @@
                 <div align="center"></div>
             </div>
         </div>
+        <!--/ Sampler container-->
     </div>
 </div>
 
-<script type="text/javascript" src="js/retina.min.js"></script>
+<!-- Recording Modal -->
+<div id="recordingModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <img onclick="closeRecordingModal()" src="img/cancel@2x.png" class="close" width="48px" height="48px"/>
+        <div class="row h-100 align-items-center">
+            <div class="col-md-12">
+                <a>Some text in the Modal..</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--The script for the audio recording logic-->
+<script type="text/javascript" src="js/recorder.js"></script>
 </body>
 </html>
