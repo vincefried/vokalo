@@ -208,8 +208,9 @@ function startRecording() {
 
         }
     });
-    modalBar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-    modalBar.text.style.fontSize = '4rem';
+    modalBar.text.style.fontFamily = 'Nunito Sans, sans-serif';
+    modalBar.text.style.fontWeight = '900';
+    modalBar.text.style.fontSize = '25px';
     modalBar.set(1.0);
     modalBar.animate(0.0);  // Number from 0.0 to 1.0
     setInterval(() => {
@@ -231,8 +232,9 @@ function startRecording() {
                 circle.setText("REC");
             }
         });
-        recBar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-        recBar.text.style.fontSize = '4rem';
+        recBar.text.style.fontFamily = 'Nunito Sans, sans-serif';
+        recBar.text.style.fontWeight = '900';
+        recBar.text.style.fontSize = '25px';
         recBar.set(0.0);
         recBar.animate(1.0);  // Number from 0.0 to 1.0
         recKick();

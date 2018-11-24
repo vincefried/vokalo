@@ -217,7 +217,8 @@
 }
 
 .modal-content {
-    background-color: #083038;
+    /*background-color: #083038;*/
+    background-color: #f5f5f5;
     padding: 20px;
     margin-left: 303px;
     margin-top: 166px;
