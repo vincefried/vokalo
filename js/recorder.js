@@ -164,7 +164,11 @@ window.onclick = function(event) {
 
 // Events
 $(".drum-cell").each((index, element) => $(element).click(event => {
-    $(event.target).toggleClass("drum-cell-active-toggled");
+    if (event.target.className === "drum-cell"
+        || event.target.className === "drum-cell-active-toggled") {
+        $(event.target).toggleClass("drum-cell drum-cell-active-toggled");
+    }
+    $(event.target).children("div").toggleClass("drum-cell-dot drum-cell-dot-active-toggled")
     kickArray[index] ^= 1
 }));
 

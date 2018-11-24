@@ -81,6 +81,15 @@
     margin-top: 5px;
 }
 
+.drum-cell-dot-active-toggled {
+    width: 13px;
+    height: 13px;
+    border: #bfff7a solid;
+    border-radius: 7px;
+    margin-top: 5px;
+    background-color: #bfff7a;
+}
+
 .drum-cell {
     width: 35px;
     height: 45px;
@@ -92,11 +101,14 @@
 }
 
 .drum-cell-active-toggled {
+    width: 35px;
+    height: 45px;
+    border: #597da0 solid;
+    border-radius: 10px;
+    -webkit-transition: .2s;
+    transition: background-color .2s;
+    cursor: pointer;
     background: #597da0;
-}
-
-.drum-cell-active-toggled:hover {
-    background-color: #597da0;
 }
 
 .drum-cell:hover {
@@ -105,10 +117,6 @@
 
 .drum-cell:active {
     background-color: #597da0;
-}
-
-.drum-cell-dot:active {
-    background-color: #bfff7a;
 }
 
 .nopadding {
@@ -224,7 +232,10 @@
 }
 
 .spinner-container {
-    margin: 60px
+    /*margin: 100px;*/
+    /*padding: 150px;*/
+    width: 110px;
+    height: 110px;
 }
 
 h1 {
