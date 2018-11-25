@@ -220,21 +220,23 @@ window.onkeydown = function(event) {
 
 // Events
 $(".drum-cell").each((index, element) => $(element).click(event => {
-    if (event.target.className === "drum-cell") {
-        if ($(event.target).parents('#kick').length === 1) {
-            kickArray[index % kickArray.length] ^= 1
-        } else if ($(event.target).parents('#snare').length === 1) {
-            snareArray[index % snareArray.length] ^= 1
-        } else if ($(event.target).parents('#hat').length === 1) {
-            hatArray[index % hatArray.length] ^= 1
-        }
+    if ($(event.target).parents('#kick').length === 1) {
+        kickArray[index % kickArray.length] ^= 1
+    } else if ($(event.target).parents('#snare').length === 1) {
+        snareArray[index % snareArray.length] ^= 1
+    } else if ($(event.target).parents('#hat').length === 1) {
+        hatArray[index % hatArray.length] ^= 1
     }
-    
+
     if (event.target.className === "drum-cell"
         || event.target.className === "drum-cell-active-toggled") {
         $(event.target).toggleClass("drum-cell drum-cell-active-toggled");
+        $(event.target).children("div").toggleClass("drum-cell-dot drum-cell-dot-active-toggled");
+    } else if (event.target.className === "drum-cell-dot"
+                || event.target.className === "drum-cell-dot-active-toggled") {
+        $(event.target).parent("div").toggleClass("drum-cell drum-cell-active-toggled");
+        $(event.target).toggleClass("drum-cell-dot drum-cell-dot-active-toggled");
     }
-    $(event.target).children("div").toggleClass("drum-cell-dot drum-cell-dot-active-toggled")
 }));
 
 function initDrum(sound) {
