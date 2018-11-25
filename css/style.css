@@ -56,6 +56,27 @@
     background-color: rgba(89, 125, 160, 0.56);
 }
 
+.play-button {
+    content: url("../img/play@2x.png");
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+.play-button:hover {
+    opacity: 0.75;
+}
+
+.play-button:active {
+
+}
+
+.play-button-active-toggled {
+    content: url("../img/stop@2x.png");
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+
 .play-indicator {
     width: 13px;
     height: 13px;

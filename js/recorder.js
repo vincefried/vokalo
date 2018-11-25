@@ -132,10 +132,29 @@ function closeRecordingModal() {
     modal.style.display = "none";
 }
 
+var isPlaying = false;
+
 function playBeat() {
-    setInterval(function(){
-        playOneBeat()
-    }, 300);
+    if (isPlaying) {
+        isPlaying = false;
+        $(".play-button").removeClass("play-button-active-toggled");
+        clearInterval(playInterval);
+        resetBeat();
+    } else {
+        isPlaying = true;
+        $(".play-button").addClass("play-button-active-toggled");
+        playInterval = setInterval(function(){
+            playOneBeat()
+        }, 300);
+    }
+}
+
+function resetBeat() {
+    pointer = 0;
+
+    $(".play-indicator").each((index, element) => {
+        $(element).removeClass("play-indicator-active-toggled")
+    });
 }
 
 function playOneBeat() {
