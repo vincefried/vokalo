@@ -134,7 +134,7 @@ function closeRecordingModal() {
 
 var isPlaying = false;
 
-function playBeat() {
+function togglePlayBeat() {
     if (isPlaying) {
         isPlaying = false;
         $(".play-button").removeClass("play-button-active-toggled");
@@ -178,6 +178,15 @@ function playOneBeat() {
 window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = "none";
+    }
+}
+
+window.onkeydown = function(event) {
+    let key = event.keyCode ? event.keyCode : event.which;
+
+    // If user pressed space
+    if (key === 32) {
+        togglePlayBeat();
     }
 }
 
