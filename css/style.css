@@ -218,6 +218,11 @@
     height: 80px;
 }
 
+.play-indicator-row {
+    margin-top: 20px;
+    height: 20px;
+}
+
 .add-row {
     height: 80px;
 }

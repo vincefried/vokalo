@@ -2,6 +2,8 @@ let kick;
 let kicks = [];
 kicks.length = 16;
 let snare;
+let snares = [];
+snares.length = 16;
 let hat;
 let pointer = 0;
 
@@ -97,8 +99,8 @@ let kickArray = [
     0,0,0,0,0,0,0,0]
 
 let snareArray = [
-    0,0,1,0,0,0,1,0,
-    0,0,1,0,0,0,1,0]
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0]
 
 let hatArray = [
     1,1,1,1,1,1,1,1,
@@ -123,7 +125,12 @@ function playDrumBeat() {
 
 let modal = document.getElementById('recordingModal');
 
-function openRecordingModal() {
+let RecordingTarget = {"kick":0, "snare":1 };
+let target = RecordingTarget.kick;
+
+function openRecordingModal(target) {
+    this.target = target;
+
     modal.style.display = "block";
     setupRecordingContainer();
 }
@@ -168,6 +175,9 @@ function playOneBeat() {
     if(kickArray[pointer])
         kicks[pointer].play();
 
+    if(snareArray[pointer])
+        snare[pointer].play();
+
     if(pointer < 15)
         pointer++;
     else
@@ -192,12 +202,17 @@ window.onkeydown = function(event) {
 
 // Events
 $(".drum-cell").each((index, element) => $(element).click(event => {
+    if ($(event.target).parents('#kick').length === 1) {
+        kickArray[index % 16] ^= 1
+    } else if ($(event.target).parents('#snare').length === 1) {
+        snareArray[index % 16] ^= 1
+    }
+
     if (event.target.className === "drum-cell"
         || event.target.className === "drum-cell-active-toggled") {
         $(event.target).toggleClass("drum-cell drum-cell-active-toggled");
     }
     $(event.target).children("div").toggleClass("drum-cell-dot drum-cell-dot-active-toggled")
-    kickArray[index] ^= 1
 }));
 
 function initDrum(sound) {
@@ -281,7 +296,16 @@ function startRecording() {
         recBar.text.style.fontSize = '25px';
         recBar.set(0.0);
         recBar.animate(1.0);  // Number from 0.0 to 1.0
-        recKick();
+        switch (target) {
+            case RecordingTarget.kick:
+                recKick();
+                break;
+            case RecordingTarget.snare:
+                recSnare();
+                break;
+            default:
+                break;
+        }
 
         setTimeout(() => {
             setupPlayContainer();
@@ -297,7 +321,16 @@ function setupPlayContainer() {
         .unbind()
         .click(event => {
             console.log("Playing audio");
-            kick.play();
+            switch (target) {
+                case RecordingTarget.kick:
+                    kick.play();
+                    break;
+                case RecordingTarget.snare:
+                    snare.play();
+                    break;
+                default:
+                    break;
+            }
         });
 
     $(".modal-bottom-button-container").addClass("show")
