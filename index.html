@@ -344,10 +344,29 @@
     <!-- Modal content -->
     <div class="modal-content">
         <img onclick="closeRecordingModal()" src="img/cancel@2x.png" class="close" width="25px" height="25px"/>
-        <div class="row h-100 align-items-center">
+        <div class="row h-100 align-items-center spinner-row">
             <div class="col-md-12">
                 <div align="center">
-                    <div id="container" class="spinner-container"></div>
+                    <div id="container" class="spinner-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-bottom-button-container hide">
+            <div class="col-md-12">
+                <div align="center">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="btn modal-button align-items-center" onclick="retryRecording()">
+                                Retry
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn modal-button" onclick="applyRecording()">
+                                Apply
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

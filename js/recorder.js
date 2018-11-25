@@ -125,7 +125,7 @@ let modal = document.getElementById('recordingModal');
 
 function openRecordingModal() {
     modal.style.display = "block";
-    startRecording();
+    setupRecordingContainer();
 }
 
 function closeRecordingModal() {
@@ -211,23 +211,39 @@ function initDrum(sound) {
     return sound
 }
 
+function setupRecordingContainer() {
+    $(".modal-bottom-button-container").addClass("hide")
+        .removeClass("show");
+    $(".spinner-container").removeClass("spinner-container-play-toggled")
+        .removeClass("spinner-container-record-toggled")
+        .append("<div class=\"row h-100 align-items-center\">\n" +
+            "<div class=\"col-md-12 nopadding\">\n" +
+            "<h2 class=\"spinner-container-text\">REC</h2>\n" +
+            "</div>\n" +
+            "</div>")
+        .unbind()
+        .click(event => {
+            startRecording();
+        });
+}
 
 function startRecording() {
+    $(".spinner-container").addClass("spinner-container-record-toggled");
     $("#container").empty();
+
     let modalBar = new ProgressBar.Circle(container, {
         color: '#ff273c',
         // This has to be the same size as the maximum width to
         // prevent clipping
-        strokeWidth: 4,
-        trailWidth: 1,
+        strokeWidth: 10,
+        trailWidth: 0,
         duration: 3000,
         text: {
             autoStyleContainer: false
         },
         // Set default step function for all animate calls
         step: function(state, circle) {
-
-            var value = Math.round(circle.value() * 3);
+            let value = Math.ceil(circle.value() * 3);
             if (value === 0) {
                 circle.setText('');
             } else {
@@ -241,14 +257,14 @@ function startRecording() {
     modalBar.text.style.fontSize = '25px';
     modalBar.set(1.0);
     modalBar.animate(0.0);  // Number from 0.0 to 1.0
-    setInterval(() => {
+    setTimeout(() => {
         modalBar.destroy();
-        let recBar = new ProgressBar.Circle(container, {
+        recBar = new ProgressBar.Circle(container, {
             color: '#ff273c',
             // This has to be the same size as the maximum width to
             // prevent clipping
-            strokeWidth: 4,
-            trailWidth: 1,
+            strokeWidth: 10,
+            trailWidth: 0,
             duration: 700,
             text: {
                 autoStyleContainer: false
@@ -257,7 +273,7 @@ function startRecording() {
             to: { color: '#ff273c', width: 2 },
             // Set default step function for all animate calls
             step: function(state, circle) {
-                circle.setText("REC");
+                circle.setText("");
             }
         });
         recBar.text.style.fontFamily = 'Nunito Sans, sans-serif';
@@ -266,5 +282,32 @@ function startRecording() {
         recBar.set(0.0);
         recBar.animate(1.0);  // Number from 0.0 to 1.0
         recKick();
+
+        setTimeout(() => {
+            setupPlayContainer();
+        }, 700)
     }, 3000)
+
+}
+
+function setupPlayContainer() {
+    recBar.destroy();
+    $(".spinner-container").removeClass("spinner-container-record-toggled")
+        .addClass("spinner-container-play-toggled")
+        .unbind()
+        .click(event => {
+            console.log("Playing audio");
+            kick.play();
+        });
+
+    $(".modal-bottom-button-container").addClass("show")
+        .removeClass("hide");
+}
+
+function retryRecording() {
+    setupRecordingContainer();
+}
+
+function applyRecording() {
+    closeRecordingModal();
 }
