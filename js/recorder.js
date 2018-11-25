@@ -5,6 +5,8 @@ let snare;
 let snares = [];
 snares.length = 16;
 let hat;
+let hats = [];
+hats.length = 16;
 let pointer = 0;
 
 const recordAudio = () => {
@@ -47,11 +49,11 @@ const recordAudio = () => {
 async function recKick() {
     const recorder = await recordAudio();
     recorder.start();
-    console.log("Started recording")
+    console.log("Started kick recording")
 
     setTimeout(async () => {
         kick = await recorder.stop();
-        console.log("Playing audio")
+        console.log("Playing kick audio")
         kick.play();
         let i;
         for (i = 0; i < kicks.length; i++)
@@ -62,30 +64,37 @@ async function recKick() {
 async function recSnare() {
     const recorder = await recordAudio();
     recorder.start();
-    console.log("Started recording")
+    console.log("Started snare recording")
 
     setTimeout(async () => {
         snare = await recorder.stop();
-        console.log("Playing audio")
+        console.log("Playing snare audio")
         snare.play();
+        let i;
+        for (i = 0; i < snares.length; i++)
+            snares[i] = new Audio(snare.audioUrl)
     }, 700);
 }
 
 async function recHat() {
     const recorder = await recordAudio();
     recorder.start();
-    console.log("Started recording")
+    console.log("Started hat recording")
 
     setTimeout(async () => {
         hat = await recorder.stop();
-        console.log("Playing audio")
+        console.log("Playing hat audio")
         hat.play();
+        let i;
+        for (i = 0; i < hats.length; i++)
+            hats[i] = new Audio(hat.audioUrl)
     }, 700);
 }
 
 async function playAudio() {
     kick.play();
     snare.play();
+    hat.play();
 }
 
 function startDrumLoop() {
@@ -103,8 +112,8 @@ let snareArray = [
     0,0,0,0,0,0,0,0]
 
 let hatArray = [
-    1,1,1,1,1,1,1,1,
-    1,1,1,1,1,1,1,1]
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0]
 
 function playDrumBeat() {
 
@@ -125,7 +134,7 @@ function playDrumBeat() {
 
 let modal = document.getElementById('recordingModal');
 
-let RecordingTarget = {"kick":0, "snare":1 };
+let RecordingTarget = {"kick":0, "snare":1, "hat":2 };
 let target = RecordingTarget.kick;
 
 function openRecordingModal(target) {
@@ -152,7 +161,7 @@ function togglePlayBeat() {
         $(".play-button").addClass("play-button-active-toggled");
         playInterval = setInterval(function(){
             playOneBeat()
-        }, 300);
+        }, 150);
     }
 }
 
@@ -172,11 +181,20 @@ function playOneBeat() {
             $(element).removeClass("play-indicator-active-toggled")
     });
 
-    if(kickArray[pointer])
+    if(kickArray[pointer]) {
+        console.log("Kick");
         kicks[pointer].play();
+    }
 
-    if(snareArray[pointer])
-        snare[pointer].play();
+    if(snareArray[pointer]) {
+        console.log("Snare");
+        snares[pointer].play();
+    }
+
+    if(hatArray[pointer]) {
+        console.log("Hat");
+        hats[pointer].play();
+    }
 
     if(pointer < 15)
         pointer++;
@@ -203,9 +221,11 @@ window.onkeydown = function(event) {
 // Events
 $(".drum-cell").each((index, element) => $(element).click(event => {
     if ($(event.target).parents('#kick').length === 1) {
-        kickArray[index % 16] ^= 1
+        kickArray[index % kickArray.length] ^= 1
     } else if ($(event.target).parents('#snare').length === 1) {
-        snareArray[index % 16] ^= 1
+        snareArray[index % snareArray.length] ^= 1
+    } else if ($(event.target).parents('#hat').length === 1) {
+        hatArray[index % hatArray.length] ^= 1
     }
 
     if (event.target.className === "drum-cell"
@@ -296,12 +316,15 @@ function startRecording() {
         recBar.text.style.fontSize = '25px';
         recBar.set(0.0);
         recBar.animate(1.0);  // Number from 0.0 to 1.0
-        switch (target) {
+        switch (this.target) {
             case RecordingTarget.kick:
                 recKick();
                 break;
             case RecordingTarget.snare:
                 recSnare();
+                break;
+            case RecordingTarget.hat:
+                recHat();
                 break;
             default:
                 break;
@@ -321,13 +344,15 @@ function setupPlayContainer() {
         .unbind()
         .click(event => {
             console.log("Playing audio");
-            switch (target) {
+            switch (this.target) {
                 case RecordingTarget.kick:
                     kick.play();
                     break;
                 case RecordingTarget.snare:
                     snare.play();
                     break;
+                case RecordingTarget.hat:
+                    hat.play();
                 default:
                     break;
             }
