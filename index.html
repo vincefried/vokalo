@@ -81,13 +81,13 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="slidecontainer">
-                                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                        <input id="main-volume-slider" oninput="mainVolumeChanged(this.value)" type="range" min="1" max="100" value="100" class="slider">
                                     </div>
                                 </div>
                             </div>
                             <div class="row pt-2">
                                 <div class="col-md-12">
-                                    <h2>100%</h2>
+                                    <h2 id="main-volume-label">100%</h2>
                                 </div>
                             </div>
                         </div>

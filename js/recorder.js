@@ -1,3 +1,4 @@
+let mainVolume = 1;
 let bpm = 120;
 let beats = 16;
 let kick;
@@ -20,6 +21,7 @@ init();
 
 function init() {
     updateBPMLabel();
+    updateBeatsLabel();
 }
 
 const recordAudio = () => {
@@ -70,7 +72,7 @@ async function recKick() {
         kick.play();
         let i;
         for (i = 0; i < kicks.length; i++)
-            kicks[i] = new Audio(kick.audioUrl)
+            kicks[i] = initDrumSample(kick.audioUrl);
         }, 700);
 }
 
@@ -85,7 +87,7 @@ async function recSnare() {
         snare.play();
         let i;
         for (i = 0; i < snares.length; i++)
-            snares[i] = new Audio(snare.audioUrl)
+            snares[i] = initDrumSample(snare.audioUrl)
     }, 700);
 }
 
@@ -100,7 +102,7 @@ async function recHat() {
         hat.play();
         let i;
         for (i = 0; i < hats.length; i++)
-            hats[i] = new Audio(hat.audioUrl)
+            hats[i] = initDrumSample(hat.audioUrl)
     }, 700);
 }
 
@@ -110,39 +112,22 @@ async function playAudio() {
     hat.play();
 }
 
-function startDrumLoop() {
-    setInterval(function(){
-        playDrumBeat()
-    }, 150);
-}
-
 let kickArray = [
     0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0]
+    0,0,0,0,0,0,0,0];
 
 let snareArray = [
     0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0]
+    0,0,0,0,0,0,0,0];
 
 let hatArray = [
     0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0]
+    0,0,0,0,0,0,0,0];
 
-function playDrumBeat() {
-
-    if(kickArray[pointer])
-        async () => kick.play()
-
-    if(snareArray[pointer])
-        async () => snare.play()
-
-    if(hatArray[pointer])
-        async () => hat.play()
-
-    if(pointer < 15)
-        pointer++
-    else
-        pointer = 0
+function mainVolumeChanged(value) {
+    mainVolume = value / 100;
+    gainNode.gain.value = mainVolume;
+    $("#main-volume-label").text(value + "%");
 }
 
 function updateBeatsLabel() {
@@ -249,7 +234,7 @@ function playOneBeat() {
         hats[pointer].play();
     }
 
-    if(pointer < 15)
+    if(pointer < (beats - 1))
         pointer++;
     else
         pointer = 0;
@@ -292,14 +277,15 @@ $(".drum-cell").each((index, element) => $(element).click(event => {
     }
 }));
 
-function initDrum(sound) {
-    var context = new AudioContext();
-    var sound = new Audio("../Sounds/"+sound);
-    var soundNode = context.createMediaElementSource(sound);
-    var gainNode = context.createGain();
-    gainNode.gain.value = 0.8;
+let context = new AudioContext();
+let gainNode = context.createGain();
+gainNode.connect(context.destination);
+gainNode.gain.value = mainVolume;
+
+function initDrumSample(url) {
+    let sound = new Audio(url);
+    let soundNode = context.createMediaElementSource(sound);
     soundNode.connect(gainNode);
-    gainNode.connect(context.destination);
     return sound
 }
 
