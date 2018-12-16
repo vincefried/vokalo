@@ -1,13 +1,67 @@
 let mainVolume = 1;
+
+let context = new AudioContext();
+let gainNode = context.createGain();
+gainNode.connect(context.destination);
+gainNode.gain.value = mainVolume;
+
 let bpm = 120;
 let beats = 16;
-let kick;
+let kick = {
+    volume: 1,
+    pan: 0.5,
+    promise: null,
+    muted: false,
+    solo: false,
+    play: function () {
+        if (this.promise !== null) {
+            this.promise.play();
+        }
+    },
+    audioUrl: function() {
+        if (this.promise !== null) {
+            return this.promise.audioUrl;
+        }
+    }
+};
 let kicks = [];
 kicks.length = beats;
-let snare;
+let snare = {
+    volume: 1,
+    pan: 0.5,
+    promise: null,
+    muted: false,
+    solo: false,
+    play: function () {
+        if (this.promise !== null) {
+            this.promise.play();
+        }
+    },
+    audioUrl: function() {
+        if (this.promise !== null) {
+            return this.promise.audioUrl;
+        }
+    }
+};
 let snares = [];
 snares.length = beats;
-let hat;
+let hat = {
+    volume: 1,
+    pan: 0.5,
+    promise: null,
+    muted: false,
+    solo: false,
+    play: function () {
+        if (this.promise !== null) {
+            this.promise.play();
+        }
+    },
+    audioUrl: function() {
+        if (this.promise !== null) {
+            return this.promise.audioUrl;
+        }
+    }
+};
 let hats = [];
 hats.length = beats;
 let pointer = 0;
@@ -67,12 +121,16 @@ async function recKick() {
     console.log("Started kick recording")
 
     setTimeout(async () => {
-        kick = await recorder.stop();
+        kick.promise = await recorder.stop();
         console.log("Playing kick audio")
         kick.play();
         let i;
-        for (i = 0; i < kicks.length; i++)
-            kicks[i] = initDrumSample(kick.audioUrl);
+        for (i = 0; i < kicks.length; i++) {
+            kicks[i] = initDrumSample(kick.audioUrl());
+            let kickGain = context.createGain();
+            kickGain.gain.value = kick.volume;
+            kickGain.connect(kick.promise.audio);
+        }
         }, 700);
 }
 
@@ -82,12 +140,13 @@ async function recSnare() {
     console.log("Started snare recording")
 
     setTimeout(async () => {
-        snare = await recorder.stop();
+        snare.promise = await recorder.stop();
         console.log("Playing snare audio")
         snare.play();
+        console.log(snare);
         let i;
         for (i = 0; i < snares.length; i++)
-            snares[i] = initDrumSample(snare.audioUrl)
+            snares[i] = initDrumSample(snare.audioUrl())
     }, 700);
 }
 
@@ -97,12 +156,12 @@ async function recHat() {
     console.log("Started hat recording")
 
     setTimeout(async () => {
-        hat = await recorder.stop();
+        hat.promise = await recorder.stop();
         console.log("Playing hat audio")
         hat.play();
         let i;
         for (i = 0; i < hats.length; i++)
-            hats[i] = initDrumSample(hat.audioUrl)
+            hats[i] = initDrumSample(hat.audioUrl())
     }, 700);
 }
 
@@ -123,6 +182,12 @@ let snareArray = [
 let hatArray = [
     0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0];
+
+function kickVolumeChanged(value) {
+    mainVolume = value / 100;
+    gainNode.gain.value = mainVolume;
+    $("#main-volume-label").text(value + "%");
+}
 
 function mainVolumeChanged(value) {
     mainVolume = value / 100;
@@ -276,11 +341,6 @@ $(".drum-cell").each((index, element) => $(element).click(event => {
         $(event.target).toggleClass("drum-cell-dot drum-cell-dot-active-toggled");
     }
 }));
-
-let context = new AudioContext();
-let gainNode = context.createGain();
-gainNode.connect(context.destination);
-gainNode.gain.value = mainVolume;
 
 function initDrumSample(url) {
     let sound = new Audio(url);

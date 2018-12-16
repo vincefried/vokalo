@@ -98,7 +98,7 @@
         </div>
         <!--/ Control container-->
         <!--Drum container-->
-        <div class="row h-50 drum-container">
+        <div class="row h-75 drum-container">
             <div class="col-md-12 nopadding">
                 <!--Play indicators track-->
                 <div class="row play-indicator-row">
@@ -191,10 +191,21 @@
                         <div align="center" class="h-100">
                             <!--Track name and options row-->
                             <div class="row h-100 align-items-center">
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     <p>Kick</p>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-4">
+                                    <div class="slidecontainer">
+                                        <input id="kick-volume-slider" oninput="kickVolumeChanged(this.value)" type="range" min="1" max="100" value="100" class="slider">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <p class="record-button" onclick="openRecordingModal(RecordingTarget.kick)">R</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p class="record-button" onclick="openRecordingModal(RecordingTarget.kick)">R</p>
+                                </div>
+                                <div class="col-md-2">
                                     <p class="record-button" onclick="openRecordingModal(RecordingTarget.kick)">R</p>
                                 </div>
                             </div>
@@ -565,22 +576,6 @@
             </div>
         </div>
         <!--/ Drum container-->
-        <!--Sampler container-->
-        <div class="row h-25 sampler-container">
-            <div class="col-md-4">
-                <div align="center" class="h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-md-4">
-                            <p>Sampler</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div align="center"></div>
-            </div>
-        </div>
-        <!--/ Sampler container-->
     </div>
 </div>
 
