@@ -11,8 +11,6 @@ let hats = [];
 hats.length = beats;
 let pointer = 0;
 
-const MAX_BEATS = 16;
-const MIN_BEATS = 1;
 const MAX_BPM = 220;
 const MIN_BPM = 40;
 
@@ -143,24 +141,6 @@ function playDrumBeat() {
         pointer++
     else
         pointer = 0
-}
-
-function updateBeatsLabel() {
-    $("#beats-label").text(beats + " Beats");
-}
-
-function increaseBeats() {
-    if (beats >= MAX_BEATS) { return; }
-
-    beats++;
-    updateBeatsLabel();
-}
-
-function decreaseBeats() {
-    if (beats <= MIN_BEATS) { return; }
-
-    beats--;
-    updateBeatsLabel();
 }
 
 function updateBPMLabel() {
