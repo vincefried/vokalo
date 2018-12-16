@@ -185,7 +185,7 @@ function closeRecordingModal() {
 var isPlaying = false;
 
 function getIntervalLength() {
-    return (60 * 1000) / bpm / (beats / 4); // (60 seconds * 1000 milliseconds) / bpm / (beats / 4 tacts)
+    return (60 * 1000) / bpm / 4; // (60 seconds * 1000 milliseconds) / bpm / (beats / 4 tacts)
 }
 
 function togglePlayBeat() {
