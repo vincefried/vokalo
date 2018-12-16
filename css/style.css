@@ -56,6 +56,10 @@
     background-color: rgba(89, 125, 160, 0.56);
 }
 
+.indicator {
+    cursor: pointer;
+}
+
 .play-button {
     content: url("../img/play@2x.png");
     -webkit-transition: .2s;

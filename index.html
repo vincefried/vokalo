@@ -37,14 +37,14 @@
                         <div align="center">
                             <div class="row value-cell">
                                 <div class="col-md-8">
-                                    <h2>174 BPM</h2>
+                                    <h2 id="bpm-label">174 BPM</h2>
                                 </div>
                                 <div class="col-md-4 h-100 nopadding">
                                     <div class="row up-indicator">
-                                        <img src="img/up@2x.png" width="24px" height="24px" />
+                                        <img class="indicator" onclick="increaseBPM()" src="img/up@2x.png" width="24px" height="24px" />
                                     </div>
                                     <div class="row down-indicator">
-                                        <img src="img/down@2x.png" width="24px" height="24px" />
+                                        <img class="indicator" onclick="decreaseBPM()" src="img/down@2x.png" width="24px" height="24px" />
                                     </div>
                                 </div>
                             </div>
@@ -56,14 +56,14 @@
                         <div align="center">
                             <div class="row value-cell">
                                 <div class="col-md-8">
-                                    <h2>16 Beats</h2>
+                                    <h2 id="beats-label">16 Beats</h2>
                                 </div>
                                 <div class="col-md-4 h-100 nopadding">
                                     <div class="row up-indicator">
-                                        <img src="img/up@2x.png" width="24px" height="24px" />
+                                        <img class="indicator" onclick="increaseBeats()" src="img/up@2x.png" width="24px" height="24px" />
                                     </div>
                                     <div class="row down-indicator">
-                                        <img src="img/down@2x.png" width="24px" height="24px" />
+                                        <img class="indicator" onclick="decreaseBeats()" src="img/down@2x.png" width="24px" height="24px" />
                                     </div>
                                 </div>
                             </div>
@@ -562,28 +562,6 @@
                     <!--/ Right part-->
                 </div>
                 <!--/ Hat cells track-->
-                <!--Add row-->
-                <div class="row add-row">
-                    <!--Left part-->
-                    <div class="col-md-4 h-100">
-                        <div align="center" class="h-100">
-                            <div class="row h-100 align-items-center">
-                                <div align="right" class="col-md-4 pr-0">
-                                    <img src="img/add@2x.png" width="24px" height="24px" />
-                                </div>
-                                <div align="left" class="col-md-8">
-                                    <p>Add new track</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/ Left part-->
-                    <!--Right part-->
-                    <div class="col-md-8 nopadding">
-                    </div>
-                    <!--/ Right part-->
-                </div>
-                <!--/ Add row-->
             </div>
         </div>
         <!--/ Drum container-->

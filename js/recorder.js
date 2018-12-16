@@ -1,13 +1,26 @@
+let bpm = 120;
+let beats = 16;
 let kick;
 let kicks = [];
-kicks.length = 16;
+kicks.length = beats;
 let snare;
 let snares = [];
-snares.length = 16;
+snares.length = beats;
 let hat;
 let hats = [];
-hats.length = 16;
+hats.length = beats;
 let pointer = 0;
+
+const MAX_BEATS = 16;
+const MIN_BEATS = 1;
+const MAX_BPM = 220;
+const MIN_BPM = 40;
+
+init();
+
+function init() {
+    updateBPMLabel();
+}
 
 const recordAudio = () => {
     return new Promise(resolve => {
@@ -132,6 +145,42 @@ function playDrumBeat() {
         pointer = 0
 }
 
+function updateBeatsLabel() {
+    $("#beats-label").text(beats + " Beats");
+}
+
+function increaseBeats() {
+    if (beats >= MAX_BEATS) { return; }
+
+    beats++;
+    updateBeatsLabel();
+}
+
+function decreaseBeats() {
+    if (beats <= MIN_BEATS) { return; }
+
+    beats--;
+    updateBeatsLabel();
+}
+
+function updateBPMLabel() {
+    $("#bpm-label").text(bpm + " BPM");
+}
+
+function increaseBPM() {
+    if (bpm >= MAX_BPM) { return; }
+
+    bpm++;
+    updateBPMLabel();
+}
+
+function decreaseBPM() {
+    if (bpm <= MIN_BPM) { return; }
+
+    bpm--;
+    updateBPMLabel();
+}
+
 let modal = document.getElementById('recordingModal');
 
 let RecordingTarget = {"kick":0, "snare":1, "hat":2 };
@@ -150,6 +199,10 @@ function closeRecordingModal() {
 
 var isPlaying = false;
 
+function getIntervalLength() {
+    return (60 * 1000) / bpm / (beats / 4); // (60 seconds * 1000 milliseconds) / bpm / (beats / 4 tacts)
+}
+
 function togglePlayBeat() {
     if (isPlaying) {
         isPlaying = false;
@@ -161,7 +214,7 @@ function togglePlayBeat() {
         $(".play-button").addClass("play-button-active-toggled");
         playInterval = setInterval(function(){
             playOneBeat()
-        }, 150);
+        }, getIntervalLength());
     }
 }
 
