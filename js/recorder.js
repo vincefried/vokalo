@@ -189,6 +189,10 @@ function getIntervalLength() {
 }
 
 function togglePlayBeat() {
+    context.resume().then(() => {
+        console.log('Playback resumed successfully');
+    });
+
     if (isPlaying) {
         isPlaying = false;
         $(".play-button").removeClass("play-button-active-toggled");
