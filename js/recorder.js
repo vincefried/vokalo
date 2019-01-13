@@ -97,6 +97,7 @@ const recordAudio = () => {
 function init() {
     updateBPMLabel();
     updateBeatsLabel();
+    navigator.mediaDevices.getUserMedia({ audio: true })
 }
 
 init();
