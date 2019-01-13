@@ -17,12 +17,45 @@ const MIN_BEATS = 1;
 const MAX_BPM = 220;
 const MIN_BPM = 40;
 
-init();
+let kickArray = [
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0];
 
-function init() {
-    updateBPMLabel();
-    updateBeatsLabel();
-}
+let snareArray = [
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0];
+
+let hatArray = [
+    0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0];
+
+let modal = document.getElementById('recordingModal');
+
+let RecordingTarget = {"kick":0, "snare":1, "hat":2 };
+let target = RecordingTarget.kick;
+
+let isPlaying = false;
+
+let context = new AudioContext();
+let gainNode = context.createGain();
+gainNode.connect(context.destination);
+gainNode.gain.value = mainVolume;
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
+
+window.onkeydown = function(event) {
+    let key = event.keyCode ? event.keyCode : event.which;
+
+    // If user pressed space
+    if (key === 32) {
+        togglePlayBeat();
+    }
+};
 
 const recordAudio = () => {
     return new Promise(resolve => {
@@ -60,6 +93,13 @@ const recordAudio = () => {
             });
     });
 };
+
+function init() {
+    updateBPMLabel();
+    updateBeatsLabel();
+}
+
+init();
 
 async function recKick() {
     const recorder = await recordAudio();
@@ -106,24 +146,6 @@ async function recHat() {
     }, 700);
 }
 
-async function playAudio() {
-    kick.play();
-    snare.play();
-    hat.play();
-}
-
-let kickArray = [
-    0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0];
-
-let snareArray = [
-    0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0];
-
-let hatArray = [
-    0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0];
-
 function mainVolumeChanged(value) {
     mainVolume = value / 100;
     gainNode.gain.value = mainVolume;
@@ -166,11 +188,6 @@ function decreaseBPM() {
     updateBPMLabel();
 }
 
-let modal = document.getElementById('recordingModal');
-
-let RecordingTarget = {"kick":0, "snare":1, "hat":2 };
-let target = RecordingTarget.kick;
-
 function openRecordingModal(target) {
     this.target = target;
 
@@ -181,8 +198,6 @@ function openRecordingModal(target) {
 function closeRecordingModal() {
     modal.style.display = "none";
 }
-
-var isPlaying = false;
 
 function getIntervalLength() {
     return (60 * 1000) / bpm / 4; // (60 seconds * 1000 milliseconds) / bpm / (beats / 4 tacts)
@@ -244,22 +259,6 @@ function playOneBeat() {
         pointer = 0;
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-}
-
-window.onkeydown = function(event) {
-    let key = event.keyCode ? event.keyCode : event.which;
-
-    // If user pressed space
-    if (key === 32) {
-        togglePlayBeat();
-    }
-}
-
 // Events
 $(".drum-cell").each((index, element) => $(element).click(event => {
     if ($(event.target).parents('#kick').length === 1) {
@@ -280,11 +279,6 @@ $(".drum-cell").each((index, element) => $(element).click(event => {
         $(event.target).toggleClass("drum-cell-dot drum-cell-dot-active-toggled");
     }
 }));
-
-let context = new AudioContext();
-let gainNode = context.createGain();
-gainNode.connect(context.destination);
-gainNode.gain.value = mainVolume;
 
 function initDrumSample(url) {
     let sound = new Audio(url);
