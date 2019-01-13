@@ -104,11 +104,11 @@ init();
 async function recKick() {
     const recorder = await recordAudio();
     recorder.start();
-    console.log("Started kick recording")
+    console.log("Started kick recording");
 
     setTimeout(async () => {
         kick = await recorder.stop();
-        console.log("Playing kick audio")
+        console.log("Playing kick audio");
         kick.play();
         let i;
         for (i = 0; i < kicks.length; i++)
@@ -119,11 +119,11 @@ async function recKick() {
 async function recSnare() {
     const recorder = await recordAudio();
     recorder.start();
-    console.log("Started snare recording")
+    console.log("Started snare recording");
 
     setTimeout(async () => {
         snare = await recorder.stop();
-        console.log("Playing snare audio")
+        console.log("Playing snare audio");
         snare.play();
         let i;
         for (i = 0; i < snares.length; i++)
@@ -134,11 +134,11 @@ async function recSnare() {
 async function recHat() {
     const recorder = await recordAudio();
     recorder.start();
-    console.log("Started hat recording")
+    console.log("Started hat recording");
 
     setTimeout(async () => {
         hat = await recorder.stop();
-        console.log("Playing hat audio")
+        console.log("Playing hat audio");
         hat.play();
         let i;
         for (i = 0; i < hats.length; i++)
@@ -233,7 +233,7 @@ function resetBeat() {
 function playOneBeat() {
     $(".play-indicator").each((index, element) => {
         if(index === pointer)
-            $(element).addClass("play-indicator-active-toggled")
+            $(element).addClass("play-indicator-active-toggled");
         else
             $(element).removeClass("play-indicator-active-toggled")
     });
@@ -259,7 +259,6 @@ function playOneBeat() {
         pointer = 0;
 }
 
-// Events
 $(".drum-cell").each((index, element) => $(element).click(event => {
     if ($(event.target).parents('#kick').length === 1) {
         kickArray[index % kickArray.length] ^= 1
