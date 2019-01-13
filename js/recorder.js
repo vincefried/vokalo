@@ -297,7 +297,7 @@ function setupRecordingContainer() {
             "</div>\n" +
             "</div>")
         .unbind()
-        .click(event => {
+        .click(() => {
             startRecording();
         });
 }
@@ -382,7 +382,7 @@ function setupPlayContainer() {
     $(".spinner-container").removeClass("spinner-container-record-toggled")
         .addClass("spinner-container-play-toggled")
         .unbind()
-        .click(event => {
+        .click(() => {
             console.log("Playing audio");
             switch (this.target) {
                 case RecordingTarget.kick:
@@ -393,6 +393,7 @@ function setupPlayContainer() {
                     break;
                 case RecordingTarget.hat:
                     hat.play();
+                    break;
                 default:
                     break;
             }
